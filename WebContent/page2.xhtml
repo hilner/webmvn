@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<h:form>
+      	<h3>Page2</h3>
+      	<br/>
+        <p:commandButton value="Page 1 with Ajax" action="page1" />
+        <br/>        
+        <p:commandButton value="Page 1 without Ajax" ajax="false" action="page1" />
+        <br/>
+        <p:commandButton value="Page 3 with Ajax" action="page3" />
+        <br/>        
+        <p:commandButton value="Page 3 without Ajax" ajax="false" action="page3" />
+	</h:form>
+</h:body>
+</html>
