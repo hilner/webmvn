@@ -11,9 +11,11 @@
 	<h:form>
       	<h3>Page3</h3>
       	<br/>
-        <p:commandButton value="Page 2 with Ajax" action="page2" />
+        <p:commandButton value="Page 2 with Ajax" action="#{testeBean.goToPage2()}" />
         <br/>        
-        <p:commandButton value="Page 2 without Ajax" ajax="false" action="page2" />
+        <p:commandButton value="Page 2 without Ajax" ajax="false" action="#{testeBean.goToPage2()}" />
+        <br/>
+        <p:inputText value="#{testeBean.umaString}"/>  
 	</h:form>
 </h:body>
 </html>
