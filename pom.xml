@@ -58,6 +58,19 @@
 			<version>${jstl-version}</version>
 		</dependency>
 
+		<!-- Tomahawk for persist objects between beans navigation -->
+		<dependency>
+			<groupId>org.apache.myfaces.tomahawk</groupId>
+			<artifactId>tomahawk</artifactId>
+			<version>1.1.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+
 		<!-- PostgresSQL JDBC Driver -->
 		<dependency>
 			<groupId>postgresql</groupId>
