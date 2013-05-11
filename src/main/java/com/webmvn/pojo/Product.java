@@ -1,4 +1,4 @@
-package com.webmvn.testHibernate;
+package com.webmvn.pojo;
 
 import java.io.Serializable;
 import javax.persistence.Column;

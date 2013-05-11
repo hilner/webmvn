@@ -21,17 +21,17 @@ public class TesteBean implements Serializable{
 	//Methods
 	public String goToPage1(){
 		setUmaString("chegando na pg1");
-		return "page1";
+		return "page1?faces-redirect=true";
 	}
 	
 	public String goToPage2(){
 		setUmaString("chegando na pg2");
-		return "page2";
+		return "page2?faces-redirect=true";
 	}
 	
 	public String goToPage3(){
 		setUmaString("chegando na pg3");
-		return "page3";
+		return "page3?faces-redirect=true";
 	}
 
 	//Getters and Setters

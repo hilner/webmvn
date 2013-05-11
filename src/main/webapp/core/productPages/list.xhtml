@@ -1,0 +1,35 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<h:form>
+		<h3>List Product</h3>
+		<br />
+		<p:commandButton value="Insert" action="#{productBean.insert()}" />
+		<br />
+		<p:dataTable var="record" value="#{productBean.list}">
+			<p:column headerText="Id">
+				<h:outputText value="#{record.id}" />
+			</p:column>
+			<p:column headerText="Name">
+				<h:outputText value="#{record.name}" />
+			</p:column>
+			<p:column headerText="Actions">
+				<p:commandLink value="Edit" action="#{productBean.edit()}">
+					<f:setPropertyActionListener value="#{record}" target="#{productBean.selectedRecord}" />  
+				</p:commandLink>
+				<p:spacer width="10"/>
+				<p:commandLink value="Delete" action="#{productBean.delete()}">
+					<f:setPropertyActionListener value="#{record}" target="#{productBean.selectedRecord}" />
+				</p:commandLink>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

@@ -16,6 +16,6 @@
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 				
-        <mapping class="com.webmvn.testHibernate.Product"/>  
+        <mapping class="com.webmvn.pojo.Product"/>  
     </session-factory>
 </hibernate-configuration>

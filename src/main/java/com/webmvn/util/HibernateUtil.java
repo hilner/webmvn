@@ -1,4 +1,4 @@
-package com.webmvn.testHibernate;
+package com.webmvn.util;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,7 +23,9 @@ public class HibernateUtil {
 	} 
 	
 	public static Session getSession(){
-		return sessionFactory.getCurrentSession();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		return session; 
 	}
 	
 }
