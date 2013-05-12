@@ -2,6 +2,7 @@ package com.webmvn.dao;
 
 import static com.webmvn.util.HibernateUtil.getSession;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Criteria;
@@ -14,16 +15,19 @@ public class ProductDAO {
 
 	public ProductDAO(){}
 	
-	public void saveOrUpdate(Product produto){
+	public void saveOrUpdate(Product product){
 		Session session = getSession();
-		session.saveOrUpdate(produto);
+		if(product.getDateOfRegistration() == null){
+			product.setDateOfRegistration(new Date());
+		}
+		session.saveOrUpdate(product);
 		session.getTransaction().commit();
 		session.close();
 	}
 	
-	public void delete(Product produto){
+	public void delete(Product product){
 		Session session = getSession();
-		session.delete(produto);
+		session.delete(product);
 		session.getTransaction().commit();		
 		session.close();		
 	}

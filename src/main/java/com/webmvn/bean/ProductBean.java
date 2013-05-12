@@ -2,8 +2,6 @@ package com.webmvn.bean;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -15,21 +13,25 @@ import com.webmvn.pojo.Product;
 @RequestScoped
 public class ProductBean implements Serializable {
 
-	//
+	//Properties
+	
 	private Product selectedRecord = new Product();
 	private List<Product> list = null;
 	private ProductDAO productDAO = new ProductDAO();
 	
-	//
+	//Constants
+	
 	private static final long serialVersionUID = 1L;
 	private final String LIST_PAGE = "list?faces-redirect=true";
-	private final String EDIT_PAGE = "edit"; //dont use redirect for edit with ajax	
+	private final String EDIT_PAGE = "edit"; //don't use redirect for edit with ajax	
 
-	//
+	//Contructors
+	
 	public ProductBean() {
 	}
 
-	//
+	//Methods
+	
 	public String insert() {
 		this.selectedRecord = new Product();
 		return EDIT_PAGE;
@@ -56,7 +58,15 @@ public class ProductBean implements Serializable {
 		return LIST_PAGE;
 	}
 	
-	//
+	public void preRenderViewEdit(){
+		//don't used
+	}
+	
+	public void preRenderViewList(){
+		//don't used
+	}
+	
+	//Getters and Setters
 
 	public Product getSelectedRecord() {
 		return selectedRecord;

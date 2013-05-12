@@ -1,19 +1,25 @@
 package com.webmvn.pojo;
 
+import java.util.Date;
 import java.io.Serializable;
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "products")
 public class Product implements Serializable{
 
-	//
+	//Properties
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +28,22 @@ public class Product implements Serializable{
 	@Column(length = 50)
 	private String name;
 	
-	//
+	@Column(name = "price", precision=25, scale=10)
+	private BigDecimal price;
+	
+	@Column(name = "situation", length=1) //new, good, more or less and broken
+	private Byte situation;
+	
+	private Boolean inactive;
+	
+	@Lob
+	private String observations;			
+	
+	@Temporal(TemporalType.DATE)
+	@Column(name = "date_of_registration", nullable = false, updatable = false)
+	private Date dateOfRegistration;
+	
+	//Constructors
 	
 	public Product(){}
 	
@@ -30,7 +51,7 @@ public class Product implements Serializable{
 		this.name = name;
 	}
 	
-	//
+	//Getters and Setters
 	
 	public Integer getId() {
 		return id;
@@ -46,6 +67,46 @@ public class Product implements Serializable{
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public BigDecimal getPrice() {
+		return price;
+	}
+
+	public void setPrice(BigDecimal price) {
+		this.price = price;
+	}
+
+	public Byte getSituation() {
+		return situation;
+	}
+
+	public void setSituation(Byte situation) {
+		this.situation = situation;
+	}
+
+	public String getObservations() {
+		return observations;
+	}
+
+	public void setObservations(String observations) {
+		this.observations = observations;
+	}
+
+	public Boolean getInactive() {
+		return inactive;
+	}
+
+	public void setInactive(Boolean inactive) {
+		this.inactive = inactive;
+	}
+
+	public Date getDateOfRegistration() {
+		return dateOfRegistration;
+	}
+
+	public void setDateOfRegistration(Date dateOfRegistration) {
+		this.dateOfRegistration = dateOfRegistration;
 	}
 
 	//Methods Override

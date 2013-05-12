@@ -12,21 +12,35 @@
 </h:head>
 <h:body>
 	<h:form>
-		<f:view>			
+		<f:view>		
+			<f:metadata>
+				<f:event type="preRenderView"
+					     listener="#{productBean.preRenderViewList()}"></f:event>
+			</f:metadata>
+				
 			<h3>List Product</h3>
 			<br />
 			<p:commandButton value="Insert" 
 							 action="#{productBean.insert()}" />		
 			<br />
 			<p:dataTable var="record" 
-						 value="#{productBean.list}">
-				<p:column headerText="Id">
+						 value="#{productBean.list}"
+						 style="width: 700px">
+				<p:column headerText="Id" style="width: 100px">
 					<h:outputText value="#{record.id}" />
 				</p:column>
-				<p:column headerText="Name">
+				<p:column headerText="Name" style="width: 200px">
 					<h:outputText value="#{record.name}" />
 				</p:column>
-				<p:column headerText="Actions">
+				<p:column headerText="Price" style="width: 150px">
+					<h:outputText value="#{record.price}" >
+						<f:convertNumber pattern="#0.00" />
+					</h:outputText>
+				</p:column>
+				<p:column headerText="Date of Registration" style="width: 100px">
+					<h:outputText value="#{record.dateOfRegistration}" />
+				</p:column>
+				<p:column headerText="Actions" style="width: 50px">
 					<p:commandLink value="Edit" 
 								   action="#{productBean.edit()}">
 						<f:setPropertyActionListener value="#{record}"
@@ -40,6 +54,8 @@
 					</p:commandLink>
 				</p:column>
 			</p:dataTable>
+			<br/>
+			<p:commandLink value="Back to index" action="/index?faces-redirect=true"/>
 		</f:view>
 	</h:form>
 </h:body>
