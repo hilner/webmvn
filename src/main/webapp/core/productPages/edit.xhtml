@@ -13,11 +13,6 @@
 <h:body>
 	<h:form id="editForm">
 		<f:view>
-			<f:metadata>
-				<f:event type="preRenderView"
-					     listener="#{productBean.preRenderViewEdit()}"></f:event>
-			</f:metadata>
-			
 			<h:inputHidden value="#{productBean.selectedRecord.id}"/>
 			
 			<h3>Product - #{productBean.selectedRecord.id==null?"New":productBean.selectedRecord.id}</h3>

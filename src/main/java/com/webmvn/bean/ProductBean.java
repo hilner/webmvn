@@ -58,14 +58,6 @@ public class ProductBean implements Serializable {
 		return LIST_PAGE;
 	}
 	
-	public void preRenderViewEdit(){
-		//don't used
-	}
-	
-	public void preRenderViewList(){
-		//don't used
-	}
-	
 	//Getters and Setters
 
 	public Product getSelectedRecord() {
