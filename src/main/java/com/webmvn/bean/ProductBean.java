@@ -23,7 +23,7 @@ public class ProductBean implements Serializable {
 	//
 	private static final long serialVersionUID = 1L;
 	private final String LIST_PAGE = "list?faces-redirect=true";
-	private final String EDIT_PAGE = "edit?faces-redirect=true";	
+	private final String EDIT_PAGE = "edit"; //dont use redirect for edit with ajax	
 
 	//
 	public ProductBean() {
@@ -31,6 +31,7 @@ public class ProductBean implements Serializable {
 
 	//
 	public String insert() {
+		this.selectedRecord = new Product();
 		return EDIT_PAGE;
 	}
 	
@@ -38,7 +39,11 @@ public class ProductBean implements Serializable {
 		return EDIT_PAGE;
 	}
 	
-	public String save() {
+	public String save() {		
+		if (selectedRecord.getId() == 0){ //JSF set 0 in null values for default
+			selectedRecord.setId(null);
+		}
+		productDAO.saveOrUpdate(selectedRecord);
 		return LIST_PAGE;
 	}
 	
@@ -47,6 +52,7 @@ public class ProductBean implements Serializable {
 	}
 
 	public String delete() {
+		productDAO.delete(selectedRecord);	
 		return LIST_PAGE;
 	}
 	
@@ -61,7 +67,6 @@ public class ProductBean implements Serializable {
 	}
 
 	public List<Product> getList() {
-		//bug here		
 		if(list == null){
 			list = productDAO.getAll();
 		}

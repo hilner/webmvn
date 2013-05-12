@@ -13,13 +13,13 @@
 <h:body>
 	<h:form>
 		<f:view>
-			<t:saveState value="#{productBean.selectedRecord}"/>
+			<h:inputHidden value="#{productBean.selectedRecord.id}"/>
 
 			<h3>Edit/Insert Product</h3>
 			<br />
 			Id
       		<br />
-			<p:inputText value="#{productBean.selectedRecord.id}" />
+			<p:inputText disabled="#{productBean.selectedRecord.id == null}" value="#{productBean.selectedRecord.id}"/>			
 			<br />
       		Name
       		<br />
@@ -29,6 +29,7 @@
 							 action="#{productBean.save()}" />
 			<p:spacer width="10" />
 			<p:commandButton value="Cancel" 
+							 immediate="true"
 							 action="#{productBean.cancel()}" />
 		</f:view>
 	</h:form>

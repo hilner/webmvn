@@ -12,17 +12,11 @@
 </h:head>
 <h:body>
 	<h:form>
-		<f:view>
-			<t:saveState value="#{productBean.selectedRecord}"/>
+		<f:view>			
 			<h3>List Product</h3>
 			<br />
 			<p:commandButton value="Insert" 
-							 action="#{productBean.insert()}" />
-			<p:commandButton value="Insertdireto" 
-							 action="edit" />
-			<p:commandButton value="Insertdiretosemajax" 
-							 action="edit"
-							 ajax="false" />
+							 action="#{productBean.insert()}" />		
 			<br />
 			<p:dataTable var="record" 
 						 value="#{productBean.list}">
@@ -39,7 +33,7 @@
 													 target="#{productBean.selectedRecord}" />
 					</p:commandLink>
 					<p:spacer width="10" />
-					<p:commandLink value="Delete" 
+					<p:commandLink value="Delete" 								   
 								   action="#{productBean.delete()}">
 						<f:setPropertyActionListener value="#{record}"
 												     target="#{productBean.selectedRecord}" />

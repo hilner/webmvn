@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "clientes")
+@Table(name = "products")
 public class Product implements Serializable{
 
 	//
@@ -31,11 +31,11 @@ public class Product implements Serializable{
 	}
 	
 	//
-
+	
 	public Integer getId() {
 		return id;
 	}
-
+	
 	public void setId(Integer id) {
 		this.id = id;
 	}
