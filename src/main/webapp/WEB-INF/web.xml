@@ -21,4 +21,15 @@
     <welcome-file-list>
         <welcome-file>index.jsf</welcome-file>
     </welcome-file-list>
+    
+    <!-- Hibernate Open Sesion in View implementation -->
+    <filter>
+        <filter-name>HibernateFilter</filter-name>
+        <filter-class>com.webmvn.filter.HibernateSessionRequestFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>HibernateFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 </web-app>

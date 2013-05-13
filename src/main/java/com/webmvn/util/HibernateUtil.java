@@ -22,10 +22,12 @@ public class HibernateUtil {
 		}
 	} 
 	
+	public static SessionFactory getSessionFactory(){
+		return sessionFactory;
+	}
+	
 	public static Session getSession(){
-		Session session = sessionFactory.openSession();
-		session.beginTransaction();
-		return session; 
+		return sessionFactory.getCurrentSession(); 		
 	}
 	
 }
