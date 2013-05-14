@@ -2,15 +2,17 @@ package com.webmvn.bean;
 
 import java.io.Serializable;
 import java.util.List;
+import java.lang.reflect.ParameterizedType;
 
 import com.webmvn.dao.GenericDAO;
 import com.webmvn.pojo.GenericPojo;
 
-public abstract class GenericBean<T extends GenericPojo> implements Serializable{
+public abstract class GenericBean<T extends GenericPojo, E extends GenericDAO<T>> implements Serializable{
 
 	// Properties
 
 	private T selectedRecord = getNewObject();
+	
 	private List<T> list = null;
 
 	// Constants
@@ -24,13 +26,29 @@ public abstract class GenericBean<T extends GenericPojo> implements Serializable
 	public GenericBean() {
 	}
 
-	// Abstract Methods
-
-	public abstract GenericDAO<T> getDAO();
-
-	public abstract T getNewObject();
-
 	// Methods
+	
+	@SuppressWarnings ("unchecked")
+	public GenericDAO<T> getDAO(){
+		ParameterizedType paramType = (ParameterizedType) getClass().getGenericSuperclass();
+	    try {
+	    	return ((Class<E>) paramType.getActualTypeArguments()[1]).newInstance();
+		} catch (InstantiationException | IllegalAccessException e) {
+			e.printStackTrace(); //add log here
+		}
+		return null;
+	}
+	
+	@SuppressWarnings ("unchecked")
+	public T getNewObject(){
+		ParameterizedType paramType = (ParameterizedType) getClass().getGenericSuperclass();
+	    try {
+	    	return ((Class<T>) paramType.getActualTypeArguments()[0]).newInstance();
+		} catch (InstantiationException | IllegalAccessException e) {
+			e.printStackTrace(); //add log here
+		}
+		return null;
+	}
 
 	public String insert() {
 		setSelectedRecord(getNewObject());
