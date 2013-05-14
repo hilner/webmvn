@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "products")
-public class Product implements Serializable{
+public class Product implements GenericPojo{
 
 	//Properties
 	
@@ -53,11 +53,13 @@ public class Product implements Serializable{
 	
 	//Getters and Setters
 	
+	@Override
 	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(Integer id) {
+	@Override
+	public void setId(Integer id) {		
 		this.id = id;
 	}
 

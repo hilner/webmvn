@@ -18,5 +18,8 @@
 		<property name="format_sql">true</property>
 				
         <mapping class="com.webmvn.pojo.Product"/>  
+        <mapping class="com.webmvn.pojo.Invoice"/>
+        <mapping class="com.webmvn.pojo.InvoiceProduct"/>
+        <mapping class="com.webmvn.pojo.Vendor"/>
     </session-factory>
 </hibernate-configuration>
