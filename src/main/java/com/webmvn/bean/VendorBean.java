@@ -10,5 +10,7 @@ import com.webmvn.pojo.Vendor;
 @ManagedBean
 @RequestScoped
 public class VendorBean extends GenericBean<Vendor, VendorDAO> {
+
+	public VendorBean(){}
 	
 }

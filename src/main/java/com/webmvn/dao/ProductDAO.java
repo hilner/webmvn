@@ -9,16 +9,11 @@ public class ProductDAO extends GenericDAO<Product>{
 	public ProductDAO(){}
 
 	@Override
-	public Class<Product> getObjectClass() {		
-		return Product.class;
-	}
-	
-	@Override
-	public void saveOrUpdate(Product object) {
-		if(object.getDateOfRegistration() == null){
-			object.setDateOfRegistration(new Date());
+	public void saveOrUpdate(Product product) {
+		if(product.getDateOfRegistration() == null){
+			product.setDateOfRegistration(new Date());
 		} 
-		super.saveOrUpdate(object);
+		super.saveOrUpdate(product);
 	}
 
 }

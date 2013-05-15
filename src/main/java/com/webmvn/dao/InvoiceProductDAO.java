@@ -6,9 +6,4 @@ public class InvoiceProductDAO extends GenericDAO<InvoiceProduct>{
 
 	public InvoiceProductDAO(){}
 
-	@Override
-	public Class<InvoiceProduct> getObjectClass() {		
-		return InvoiceProduct.class;
-	}
-
 }

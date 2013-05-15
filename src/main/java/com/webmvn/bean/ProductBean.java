@@ -10,5 +10,7 @@ import com.webmvn.pojo.Product;
 @ManagedBean
 @RequestScoped
 public class ProductBean extends GenericBean<Product, ProductDAO> {
-	
+		
+	public ProductBean(){}
+		
 }
