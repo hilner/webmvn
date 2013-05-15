@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<title>List Vendors</title>
+</h:head>
+<h:body>
+	<h:form>
+		<f:view>		
+			<h3>List Vendors</h3>
+			<br />
+			<p:commandButton value="Insert" 
+							 action="#{vendorBean.insert()}" />		
+			<br />
+			<p:dataTable var="record" 
+						 value="#{vendorBean.list}"
+						 style="width: 700px">
+				<p:column headerText="Id" style="width: 100px">
+					<h:outputText value="#{record.id}" />
+				</p:column>
+				<p:column headerText="Name" style="width: 450px">
+					<h:outputText value="#{record.name}" />
+				</p:column>				
+				<p:column headerText="Actions" style="width: 50px">
+					<p:commandLink value="Edit" 
+								   action="#{vendorBean.edit()}">
+						<f:setPropertyActionListener value="#{record}"
+													 target="#{vendorBean.selectedRecord}" />
+					</p:commandLink>
+					<p:spacer width="10" />
+					<p:commandLink value="Delete" 								   
+								   action="#{vendorBean.delete()}">
+						<f:setPropertyActionListener value="#{record}"
+												     target="#{vendorBean.selectedRecord}" />
+					</p:commandLink>
+				</p:column>
+			</p:dataTable>
+			<br/>
+			<p:commandLink value="Back to index" action="/index?faces-redirect=true"/>
+		</f:view>
+	</h:form>
+</h:body>
+</html>
